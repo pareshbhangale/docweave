@@ -101,7 +101,7 @@ class TypeSafePDFClient:
         self.timeout = creds["timeout"]
         self.is_openai_compat = is_openai_compat if is_openai_compat is not None else creds["is_openai_compat"]
 
-        if not self.is_openai_compat and not self.api_key:
+        if not self.is_openai_compat and not self.api_key and "127.0.0.1" not in self.endpoint and "localhost" not in self.endpoint:
             raise ValueError(
                 "TypeSafe API key missing. Set TYPESAFE_API_KEY environment variable or "
                 "configure 'providers.typesafe.api_key' in config.json."

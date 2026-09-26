@@ -1,0 +1,190 @@
+{
+  "cases": [
+    {
+      "id": "case_1_balance_sheet",
+      "description": "Dense audited balance sheet with multiple columns of figures",
+      "state": {
+        "page": 4,
+        "chars": 2840,
+        "drawings": 82,
+        "tables_detected": 1,
+        "text_snippet": "Standalone Balance Sheet as at March 31, 2026. Non-current assets: Property, Plant and Equipment 4,521.8 Cr vs 3,890.1 Cr. Current liabilities: Trade payables 1,230.4 Cr. Total equity and liabilities 12,450.9 Cr."
+      },
+      "expected_route": "TABLE",
+      "question": {
+        "type": "choice",
+        "instructions": "Determine whether this page contains a real financial/tabular dataset or narrative text.",
+        "criteria": {
+          "TABLE": "Real structured financial data, balance sheet, P&L, multi-column metrics, or tabular SEBI schedule.",
+          "TEXT": "Notice, prose, resolution, disclaimer, or letter (even if it has letterhead lines or borders).",
+          "OCR": "Scanned document or illegible bitmap."
+        }
+      }
+    },
+    {
+      "id": "case_2_agm_notice",
+      "description": "Notice of Annual General Meeting with decorative borders and letterhead",
+      "state": {
+        "page": 1,
+        "chars": 1920,
+        "drawings": 14,
+        "tables_detected": 0,
+        "text_snippet": "NOTICE IS HEREBY GIVEN THAT the 28th Annual General Meeting of the Members of the Company will be held on Friday, September 25, 2026 at 11:00 AM IST through Video Conferencing to transact Ordinary Business and Special Resolutions."
+      },
+      "expected_route": "TEXT",
+      "question": {
+        "type": "choice",
+        "instructions": "Determine whether this page contains a real financial/tabular dataset or narrative text.",
+        "criteria": {
+          "TABLE": "Real structured financial data, balance sheet, P&L, multi-column metrics, or tabular SEBI schedule.",
+          "TEXT": "Notice, prose, resolution, disclaimer, or letter (even if it has letterhead lines or borders).",
+          "OCR": "Scanned document or illegible bitmap."
+        }
+      }
+    },
+    {
+      "id": "case_3_shareholding_pattern",
+      "description": "SEBI Regulation 31 tabular shareholding breakdown",
+      "state": {
+        "page": 12,
+        "chars": 3120,
+        "drawings": 120,
+        "tables_detected": 1,
+        "text_snippet": "Statement showing shareholding pattern of the Promoter and Promoter Group: Indian Promoters 54.21% (124,500,000 shares), Foreign Institutional Investors 22.18% (50,900,000 shares), Public 23.61%."
+      },
+      "expected_route": "TABLE",
+      "question": {
+        "type": "choice",
+        "instructions": "Determine whether this page contains a real financial/tabular dataset or narrative text.",
+        "criteria": {
+          "TABLE": "Real structured financial data, balance sheet, P&L, multi-column metrics, or tabular SEBI schedule.",
+          "TEXT": "Notice, prose, resolution, disclaimer, or letter (even if it has letterhead lines or borders).",
+          "OCR": "Scanned document or illegible bitmap."
+        }
+      }
+    },
+    {
+      "id": "case_4_director_report_prose",
+      "description": "Directors' report narrative paragraph discussing business operations",
+      "state": {
+        "page": 8,
+        "chars": 2650,
+        "drawings": 2,
+        "tables_detected": 0,
+        "text_snippet": "Management Discussion & Analysis: During the fiscal year under review, the global supply chain experienced stabilization. Your Company achieved record revenues in the specialty rail transport segment driven by modernization orders from Indian Railways."
+      },
+      "expected_route": "TEXT",
+      "question": {
+        "type": "choice",
+        "instructions": "Determine whether this page contains a real financial/tabular dataset or narrative text.",
+        "criteria": {
+          "TABLE": "Real structured financial data, balance sheet, P&L, multi-column metrics, or tabular SEBI schedule.",
+          "TEXT": "Notice, prose, resolution, disclaimer, or letter (even if it has letterhead lines or borders).",
+          "OCR": "Scanned document or illegible bitmap."
+        }
+      }
+    },
+    {
+      "id": "case_5_table_qa_clean",
+      "description": "Clean markdown table audit for structural corruption",
+      "state": "| Quarter Ended | Jun 30, 2026 | Mar 31, 2026 | Jun 30, 2025 |\n|---|---|---|---|\n| Revenue from Operations | 1,450.2 | 1,320.5 | 1,180.0 |\n| Operating Profit | 320.1 | 290.4 | 240.5 |\n| Net Profit | 210.5 | 185.2 | 150.3 |",
+      "expected_corrupted": false,
+      "question": {
+        "type": "noul",
+        "instructions": "Is the markdown table corrupted, scrambled, or broken?"
+      }
+    },
+    {
+      "id": "case_6_table_qa_corrupted",
+      "description": "Garbled table markdown with collapsed columns and misaligned values",
+      "state": "Revenue from Operations Jun 30 1,450.2 | Mar 31 1,320.5 -- 1,180.0\nOperating Profit ||| Net Profit 210.5 185.2 150.3 ??? missing cols",
+      "expected_corrupted": true,
+      "question": {
+        "type": "noul",
+        "instructions": "Is the markdown table corrupted, scrambled, or broken?"
+      }
+    }
+  ],
+  "jev_results": [
+    {
+      "id": "case_1_balance_sheet",
+      "latency_ms": 334.8,
+      "answer": {
+        "type": "choice",
+        "choice": "TABLE",
+        "confidence": 0.99,
+        "probabilities": {
+          "TEXT": 0.0,
+          "TABLE": 1.0,
+          "OCR": 0.0
+        }
+      },
+      "success": true
+    },
+    {
+      "id": "case_2_agm_notice",
+      "latency_ms": 340.8,
+      "answer": {
+        "type": "choice",
+        "choice": "TEXT",
+        "confidence": 1.0,
+        "probabilities": {
+          "TABLE": 0.0,
+          "OCR": 0.0,
+          "TEXT": 1.0
+        }
+      },
+      "success": true
+    },
+    {
+      "id": "case_3_shareholding_pattern",
+      "latency_ms": 354.3,
+      "answer": {
+        "type": "choice",
+        "choice": "TABLE",
+        "confidence": 0.73,
+        "probabilities": {
+          "TABLE": 0.82,
+          "TEXT": 0.18,
+          "OCR": 0.0
+        }
+      },
+      "success": true
+    },
+    {
+      "id": "case_4_director_report_prose",
+      "latency_ms": 344.5,
+      "answer": {
+        "type": "choice",
+        "choice": "TEXT",
+        "confidence": 1.0,
+        "probabilities": {
+          "OCR": 0.0,
+          "TABLE": 0.0,
+          "TEXT": 1.0
+        }
+      },
+      "success": true
+    },
+    {
+      "id": "case_5_table_qa_clean",
+      "latency_ms": 2204.4,
+      "answer": {
+        "type": "noul",
+        "noul": 0.04
+      },
+      "success": true
+    },
+    {
+      "id": "case_6_table_qa_corrupted",
+      "latency_ms": 364.2,
+      "answer": {
+        "type": "noul",
+        "noul": 0.94
+      },
+      "success": true
+    }
+  ],
+  "jev_total_ms": 3943.061748999753,
+  "jev_avg_ms": 657.1769581666255
+}

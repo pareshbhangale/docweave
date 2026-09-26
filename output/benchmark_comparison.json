@@ -1,0 +1,168 @@
+{
+  "jev_total_ms": 4687.8425019967835,
+  "clm_total_ms": 940.2465829989524,
+  "jev_avg_ms": 781.3070836661306,
+  "clm_avg_ms": 156.70776383315874,
+  "accuracy_matches": 3,
+  "total_cases": 6,
+  "jev_results": [
+    {
+      "id": "case_1_balance_sheet",
+      "latency_ms": 1789.1,
+      "answer": {
+        "type": "choice",
+        "choice": "TABLE",
+        "confidence": 0.99,
+        "probabilities": {
+          "TABLE": 1.0,
+          "OCR": 0.0,
+          "TEXT": 0.0
+        }
+      },
+      "success": true
+    },
+    {
+      "id": "case_2_agm_notice",
+      "latency_ms": 406.0,
+      "answer": {
+        "type": "choice",
+        "choice": "TEXT",
+        "confidence": 1.0,
+        "probabilities": {
+          "OCR": 0.0,
+          "TABLE": 0.0,
+          "TEXT": 1.0
+        }
+      },
+      "success": true
+    },
+    {
+      "id": "case_3_shareholding_pattern",
+      "latency_ms": 389.5,
+      "answer": {
+        "type": "choice",
+        "choice": "TABLE",
+        "confidence": 0.8,
+        "probabilities": {
+          "OCR": 0.0,
+          "TEXT": 0.13,
+          "TABLE": 0.87
+        }
+      },
+      "success": true
+    },
+    {
+      "id": "case_4_director_report_prose",
+      "latency_ms": 481.6,
+      "answer": {
+        "type": "choice",
+        "choice": "TEXT",
+        "confidence": 1.0,
+        "probabilities": {
+          "OCR": 0.0,
+          "TEXT": 1.0,
+          "TABLE": 0.0
+        }
+      },
+      "success": true
+    },
+    {
+      "id": "case_5_table_qa_clean",
+      "latency_ms": 1079.0,
+      "answer": {
+        "type": "noul",
+        "noul": 0.05
+      },
+      "success": true
+    },
+    {
+      "id": "case_6_table_qa_corrupted",
+      "latency_ms": 542.6,
+      "answer": {
+        "type": "noul",
+        "noul": 0.94
+      },
+      "success": true
+    }
+  ],
+  "clm_results": [
+    {
+      "id": "case_1_balance_sheet",
+      "latency_ms": 398.5,
+      "answer": {
+        "type": "choice",
+        "choice": "TEXT",
+        "confidence": 0.2305479405524306,
+        "probabilities": {
+          "TABLE": 0.07408859918053379,
+          "TEXT": 0.48703196036828705,
+          "OCR": 0.4388794404511791
+        }
+      },
+      "success": true
+    },
+    {
+      "id": "case_2_agm_notice",
+      "latency_ms": 182.2,
+      "answer": {
+        "type": "choice",
+        "choice": "TEXT",
+        "confidence": 0.263670502902448,
+        "probabilities": {
+          "TABLE": 0.06769982854630875,
+          "TEXT": 0.509113668601632,
+          "OCR": 0.4231865028520592
+        }
+      },
+      "success": true
+    },
+    {
+      "id": "case_3_shareholding_pattern",
+      "latency_ms": 49.9,
+      "answer": {
+        "type": "choice",
+        "choice": "TEXT",
+        "confidence": 0.33884791146512083,
+        "probabilities": {
+          "TABLE": 0.06401333807002577,
+          "TEXT": 0.5592319409767472,
+          "OCR": 0.37675472095322704
+        }
+      },
+      "success": true
+    },
+    {
+      "id": "case_4_director_report_prose",
+      "latency_ms": 141.4,
+      "answer": {
+        "type": "choice",
+        "choice": "TEXT",
+        "confidence": 0.3359404194693604,
+        "probabilities": {
+          "TABLE": 0.06088580005009909,
+          "TEXT": 0.5572936129795736,
+          "OCR": 0.3818205869703273
+        }
+      },
+      "success": true
+    },
+    {
+      "id": "case_5_table_qa_clean",
+      "latency_ms": 127.5,
+      "answer": {
+        "type": "noul",
+        "noul": 0.5655068367242864
+      },
+      "success": true
+    },
+    {
+      "id": "case_6_table_qa_corrupted",
+      "latency_ms": 40.7,
+      "answer": {
+        "type": "noul",
+        "noul": 0.6240890629940267
+      },
+      "success": true
+    }
+  ]
+}

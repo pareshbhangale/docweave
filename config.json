@@ -1,17 +1,17 @@
 {
-  "active_provider": "typesafe",
+  "active_provider": "clm",
   "providers": {
     "clm": {
       "name": "Local Contrastive Language Model (CLM-8B System One)",
       "endpoint": "http://127.0.0.1:8700/v1/systemone",
-      "api_key": "",
+      "api_key": "local",
       "model": "clm-latest",
       "timeout": 10.0
     },
     "typesafe": {
       "name": "TypeSafe System One (Jev / Laya)",
       "endpoint": "https://api.typesafe.ai/v1/systemone",
-      "api_key": "",
+      "api_key": "apikey_293a2c9abe9855c4301a2951be1864ab82a_fc3d57e2cc85d21cf049bb7c3714202dc16012df6e09a0e93c967c406c9ac662",
       "model": "jev-latest",
       "timeout": 12.0
     },

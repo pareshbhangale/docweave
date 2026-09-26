@@ -24,7 +24,7 @@ def get_jev_client() -> Optional[TypeSafePDFClient]:
     if _JEV_CLIENT is None:
         try:
             creds = get_typesafe_credentials()
-            if creds.get("api_key"):
+            if creds.get("api_key") or "127.0.0.1" in creds.get("endpoint", "") or "localhost" in creds.get("endpoint", ""):
                 _JEV_CLIENT = TypeSafePDFClient()
         except Exception:
             _JEV_CLIENT = None
