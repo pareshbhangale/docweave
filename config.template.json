@@ -1,0 +1,38 @@
+{
+  "active_provider": "typesafe",
+  "providers": {
+    "typesafe": {
+      "name": "TypeSafe System One (Jev / Laya)",
+      "endpoint": "https://api.typesafe.ai/v1/systemone",
+      "api_key": "",
+      "model": "jev-latest",
+      "timeout": 12.0
+    },
+    "local_ollama": {
+      "name": "Local Ollama / Llama.cpp (OpenAI Compatible)",
+      "endpoint": "http://localhost:11434/v1/chat/completions",
+      "api_key": "ollama",
+      "model": "llama3.2:latest",
+      "timeout": 30.0
+    },
+    "local_vllm": {
+      "name": "Local vLLM / LM Studio / LocalAI",
+      "endpoint": "http://localhost:8000/v1/chat/completions",
+      "api_key": "not-needed",
+      "model": "meta-llama/Llama-3.2-3B-Instruct",
+      "timeout": 30.0
+    },
+    "openai": {
+      "name": "OpenAI / OpenRouter / Custom Gateway",
+      "endpoint": "https://api.openai.com/v1/chat/completions",
+      "api_key": "",
+      "model": "gpt-4o-mini",
+      "timeout": 15.0
+    }
+  },
+  "settings": {
+    "batch_size": 16,
+    "num_threads": 10,
+    "audit_quality": true
+  }
+}

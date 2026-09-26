@@ -1,0 +1,49 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "docweave"
+version = "1.0.0"
+description = "AI-Supervised PDF-to-Markdown engine with intelligent ambiguity routing and in-flight table QA. Pairs PyMuPDF and Docling TableFormer with TypeSafe (Jev/Laya) and local LLMs (Ollama, vLLM) to resolve borderline layouts and catch corrupted financial tables."
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+authors = [
+    { name = "Paresh Bhangale" }
+]
+
+[project.urls]
+Homepage = "https://github.com/pareshbhangale/docweave"
+Repository = "https://github.com/pareshbhangale/docweave"
+Issues = "https://github.com/pareshbhangale/docweave/issues"
+classifiers = [
+    "Development Status :: 5 - Production/Stable",
+    "Intended Audience :: Developers",
+    "Intended Audience :: Financial and Insurance Industry",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Text Processing :: General",
+    "Topic :: Scientific/Engineering :: Information Analysis"
+]
+dependencies = [
+    "pymupdf>=1.25.0",
+    "pymupdf4llm>=0.0.17",
+    "docling>=2.100.0",
+    "docling-core>=2.80.0",
+    "requests>=2.28.0"
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0.0"
+]
+
+[project.scripts]
+docweave = "docweave.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
